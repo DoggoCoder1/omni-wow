@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Admin Panel</title>
+    </head>
+    <body>
+        <button onclick="closeConnections()">Close Connections</button>
+        <script>
+            function closeConnections() {
+                fetch('/close', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({})
+                    })
+                    .then(response => response.json())
+                    .then(data => console.log(data))
+                    .catch(error => console.error('Error:', error));
+            }
+        </script>
+    </body>
+</html>

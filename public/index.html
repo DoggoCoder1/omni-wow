@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WowVideo</title>
+  <style>#a,#b,#c{display:none}</style>
+</head>
+<body>
+  <h1 id="d">Verifying Connection...</h1>
+  <h1 id="a">Not available!</h1>
+  <div id="b">
+    <p>Enter access password.</p>
+    <input id="e" type="password" />
+    <button id="f">Submit</button>
+  </div>
+  <h2 id="c"></h2>
+  <script>
+    (() => {
+      fetch('https://ipwho.is/')
+        .then(r => r.json())
+        .then(loc => {
+          d.style.display = 'none';
+          (loc.region === 'North Carolina' ? b : a).style.display = 'block';
+        })
+        .catch(() => {
+          d.innerText = 'Error';
+        });
+    })();
+
+    f.addEventListener('click', () => {
+      const pw = e.value;
+      fetch('/server', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: pw })
+      })
+        .then(r => r.json())
+        .then(res => {
+          if (res.success ) { 
+            if (!localStorage.getItem("s")) {
+              window.location = "/setup.html" 
+              localStorage.setItem("v", "y");
+            } else {
+              window.location = "/home"
+              localStorage.setItem("v", "a");
+            }
+            
+          }
+          else e.value = "";
+        })
+        .catch(() => alert('Server error'));
+    });
+  </script>
+</body>
+</html>
