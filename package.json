@@ -2,16 +2,23 @@
   "name": "wowvideo",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DoggoCoder1/omni-wow.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/DoggoCoder1/omni-wow/issues"
+  },
+  "homepage": "https://github.com/DoggoCoder1/omni-wow#readme",
   "dependencies": {
-    "express": "^5.1.0"
+    "pg": "^8.16.3"
   }
 }
